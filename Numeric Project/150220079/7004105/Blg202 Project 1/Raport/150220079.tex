@@ -1,0 +1,135 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+	
+	\title{Item-based Filtering Enhanced by SVD\\
+	}
+	
+	\author{\IEEEauthorblockN{Ahmet Enes Çiğdem}
+		\IEEEauthorblockA{\textit{Istanbul Technical University} \\
+			Istanbul, Turkey \\
+			cigdem22@itu.edu.tr}
+	}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This paper concentrates on employing the Singular Value Decomposition (SVD) method in conjunction with item-based filtering technique. Item-based filtering is an approach that suggests items sharing similar attributes by analyzing users' historical preferences. SVD serves as a matrix factorization method utilized for uncovering latent associations within extensive datasets.
+	\end{abstract}
+	
+	\section{Introduction}
+	In contemporary online platforms and digital media landscapes, there is a pressing demand to suggest content aligned with users' preferences. Particularly in movie and TV series platforms, offering tailored content enhances user satisfaction and platform efficacy. Within this framework, recommendation systems have garnered significant attention. The primary objective of this study is to integrate item-based filtering with traditional Singular Value Decomposition (SVD) to enhance the accuracy of predicting users' movie preferences and furnish more personalized movie recommendations. This approach aims not only to elevate user experience but also to empower platform owners with enhanced content management and bolstered user loyalty.
+	
+	\section{Background}
+	
+	\subsection{Singular Value Decomposition (SVD) }
+	
+	Singular Value Decomposition (SVD) is a linear algebra technique for decomposing matrices. It represents a matrix as the product of three smaller and more specialized matrices: a right-order matrix, a diagonal matrix and a left-order matrix. This matrix decomposition is useful for discovering hidden relationships. In particular, in large datasets, SVD can be used to understand hidden structure, reducing data size, and identifying features. \\
+	Mathematically, a matrix $A$ of size $m \times n$ can be decomposed using Singular Value Decomposition (SVD) into three components:
+	
+	\[ A = U \Sigma V^T \]
+	
+	Here, \\
+	- $U$ is an $m \times m$ orthogonal matrix, \\
+	- $\Sigma$ is an $m \times n$ diagonal matrix containing the singular values arranged in descending order, \\
+	- $V$ is an $n \times n$ orthogonal matrix.\\
+	
+	SVD allows for the compression of information by reducing the dimensionality of the matrix and revealing hidden relationships within the dataset. Particularly, by selecting $k$ singular values, an approximation $A_k$ of the original matrix $A$ can be obtained. This approximation is calculated using the columns and rows corresponding to the top $k$ singular values:
+	
+	\[ A_k = U_k \Sigma_k V_k^T \]
+	
+	Here, $U_k$, $\Sigma_k$, and $V_k$ are submatrices consisting of the first $k$ columns of $U$, $\Sigma$, and $V$, respectively.
+	
+	SVD can be utilized in recommendation systems to provide recommendations based on user-item interactions. By representing user preferences in a matrix form, SVD can uncover the latent structure within the data, enabling predictions of future preferences.
+	
+	\subsection{Item-Based Collabrative Filtering}
+	
+	Item-based collaborative filtering is a recommendation technique that suggests items to users based on the similarity between items. This approach measures the likeness between items, often utilizing metrics like cosine similarity or Pearson correlation coefficient. The core concept involves recommending items akin to those a user has previously liked or interacted with.
+	
+	For instance, envision a movie recommendation system. If a user has rated or favored specific movies, item-based collaborative filtering identifies other movies akin to those enjoyed by the user. The similarity between movies may stem from factors such as genre, cast, director, or user ratings.
+	
+	A key advantage of item-based collaborative filtering is its scalability. It efficiently handles extensive datasets as the similarity between items is precomputed and stored in a similarity matrix. Moreover, it adapts well to new items added to the system, as incremental updates to item similarities obviate the need for recalculating all similarities.
+	
+	Overall, item-based collaborative filtering furnishes personalized recommendations by leveraging item similarities, enabling users to explore new items aligned with their interests based on past interactions.
+	
+	
+	\section{Implementing Item-Based Collaborative Filtering Algorithm with Python}
+	
+	\textbf{Introduction:}
+	
+	For implementation in Python, we can utilize libraries such as \texttt{json}, \texttt{numpy}, \texttt{pandas}, and \texttt{matplotlib}.\\
+	
+	\textbf{1. Loading the Dataset (\texttt{json}):} The first step is to load a dataset that represents user-item interactions. This dataset is typically stored as a JSON file and contains information such as user ratings or interaction types.
+	
+	\textbf{2. Processing the Dataset (\texttt{pandas}, \texttt{numpy}):} We can use the \texttt{pandas} library to process the loaded dataset. By converting the dataset into a DataFrame, we can create the user-item matrix. Then, we can perform matrix operations using the \texttt{numpy} library.\\
+	
+	\textbf{3. Calculating Item Similarities (\texttt{numpy}):} To compute similarities between items, we can use the \texttt{numpy} library. For example, we can calculate cosine similarity using vector operations provided by \texttt{numpy}.\\
+	
+	\textbf{4. Generating User Recommendations:} Once the item similarities are calculated and the recommendations are made, we can evaluate the performance of our recommendation system. One common metric for evaluating recommendation systems is the Mean Absolute Error (MAE), which measures the average absolute difference between the predicted ratings and the actual ratings given by users.
+	
+	To visualize the MAE, we can use the \texttt{matplotlib} library. We can plot the MAE values over iterations or other relevant factors to observe how the recommendation system's performance changes over time or with different parameters.
+	
+	The following steps outline how to visualize MAE using \texttt{matplotlib}:\\
+	1. Compute MAE: Calculate the MAE values for different iterations or parameter settings.\\
+	2. Plot MAE: Use \texttt{matplotlib} to create a line plot or a bar plot showing the MAE values over iterations or parameter settings.\\
+	3. Interpret Results: Analyze the plot to understand how the MAE changes and whether the recommendation system's performance improves or deteriorates under different conditions.\\
+	
+	By visualizing the MAE, we can gain insights into the effectiveness of our item-based collaborative filtering algorithm and make informed decisions about its optimization and fine-tuning.
+	
+	
+	\textbf{5. Experimental Setup and Code Implementation}
+	In our experimental setup, we utilized the IMDb dataset, which provides movie ratings on a scale of 1 to 10. To ensure the reliability of our recommendations, we focused on reviewers who have rated at least 20 films. By selecting this subset of reviewers, we aimed to include users with a sufficient number of ratings to provide meaningful insights into their preferences and tastes.
+	
+	The IMDb dataset offers a rich source of movie ratings contributed by a diverse range of users. By leveraging this dataset, we were able to develop and implement an item-based collaborative filtering algorithm in Python. This algorithm analyzes the similarities between movies based on the ratings provided by users and generates personalized recommendations for each user.
+	
+	In this section, we will outline the experimental setup, including the preprocessing steps applied to the IMDb dataset, the implementation of the item-based collaborative filtering algorithm using Python, and the evaluation metrics used to assess the performance of our recommendation system. Additionally, we will discuss the insights gained from the experiments and the implications of our findings.
+	
+	\subsection {Algorithm}
+	
+	\begin{itemize}
+		\item First construct the matrix (reviewer, movie). In the cells of the matrix we write the reviewer's rating for the movie.
+		\item Then we find the average of each row and column of this matrix to fill the empty elements of this matrix. Then add to each cell the average of the column it is in and subtract the row average.
+		\item Then we apply SVD to this matrix with the help of the QR algorithm. And reduce the SVD result by selecting k singular values. Let's call this matrix $R_{red}$. And calculate $\sqrt{E_k}V^T_k$ to get our meta ratings matrix.
+		\item  Let's do an adjusted cosine similarity calculation using the meta ratings matrix and note the movies with the highest L score.
+		\item Finally, let's find the Prediction Generation result using the similarity result, the $R_{red}$ matrix, and the row averages of these L movies.
+	\end{itemize}
+	
+	\subsection {MAE}
+	At this stage, MAE was calculated using L = [20,40,60], k = [2,4,6,8,12]. First, MAE is calculated for one individual. For example, the graphs of the user are as follows. The common result for this user is that k gives a minimum MAE of 6-8 and L gives a minimum MAE of 20.
+	\begin{figure}[htbp]
+		\centerline{\includegraphics[scale = 0.5]{user1k.png}}
+		\caption{MAE for different k values}
+		\label{fig}
+	\end{figure}
+	\begin{figure}[htbp]
+		\centerline{\includegraphics[scale = 0.5]{l-values.png}}
+		\caption{MAE for different neigboneighborhood
+			dimensions}
+		\label{fig}
+	\end{figure}
+	
+	
+	Looking at all users, the minimum MAE is k = 6. The result of MAE at this value is 0.33. Therefore, our algorithm can predict a user's rating of a movie at $\pm0.33$. 
+	
+	\section{Conclusion and Future Work}
+	
+	In this paper, an item-based algorithm augmented with SVD is tested. SVD is used to find the meta ratings matrix. This reduces the error in similarity detection and prediction. Thanks to these benefits of SVD, predictions can be made with a deviation of around $\pm0.5\%$. This result is quite sufficient for a movie recommendation application.
+	
+	
+	
+	
+	\begin{thebibliography}{00}
+		\bibitem{b1} Vozalis, M. G., Margaritis, K. G. (2007). Using SVD and demographic data for the enhancement of generalized Collaborative Filtering. Information Sciences, 177(15), 3017–3037.
+	\end{thebibliography}
+	
+	
+\end{document}

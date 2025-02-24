@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}INTRODUCTION}{1}{}%
+\contentsline {section}{\numberline {2}MATERIALS AND METHODS}{1}{}%
+\contentsline {subsection}{\numberline {2.1}Part 1}{1}{}%
+\contentsline {subsection}{\numberline {2.2}Part 2}{1}{}%
+\contentsline {subsection}{\numberline {2.3}Part 3}{4}{}%
+\contentsline {subsection}{\numberline {2.4}Part 4}{6}{}%
+\contentsline {section}{\numberline {3}RESULTS [15 points]}{7}{}%
+\contentsline {subsection}{\numberline {3.1}Part 1}{7}{}%
+\contentsline {subsection}{\numberline {3.2}Part 2.1}{7}{}%
+\contentsline {subsection}{\numberline {3.3}Part 2.2}{7}{}%
+\contentsline {subsection}{\numberline {3.4}Part 2.3}{8}{}%
+\contentsline {subsection}{\numberline {3.5}Part 3}{8}{}%
+\contentsline {subsection}{\numberline {3.6}Part 4}{9}{}%
+\contentsline {section}{\numberline {4}DISCUSSION}{9}{}%
+\contentsline {subsection}{\numberline {4.1}Part 1}{9}{}%
+\contentsline {subsection}{\numberline {4.2}Part 2.1}{10}{}%
+\contentsline {subsection}{\numberline {4.3}Part 2.2}{10}{}%
+\contentsline {subsection}{\numberline {4.4}Part 2.3}{10}{}%
+\contentsline {subsection}{\numberline {4.5}Part 3}{11}{}%
+\contentsline {subsection}{\numberline {4.6}Part 4}{11}{}%
+\contentsline {section}{\numberline {5}CONCLUSION}{11}{}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }REFERENCES}{12}{}%
